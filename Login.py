@@ -8,7 +8,7 @@ from streamlit_authenticator.utilities.exceptions import LoginError
 
 from utils.utils import get_authenticator 
 
-@st.cache_data
+
 def read_google_sheet():
     print('Leggi dati')
     # Define the scope of the Google Sheet
