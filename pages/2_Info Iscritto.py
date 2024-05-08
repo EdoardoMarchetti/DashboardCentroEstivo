@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from Login import read_google_sheet
 from utils.utils import get_authenticator
 from utils.constants import column_mapping, weeks, new_columns
 
@@ -9,6 +10,8 @@ if ("authentication_status" not in st.session_state.keys()) or not st.session_st
 elif st.session_state["authentication_status"] is True:
     st.title('Informazioni iscritto')
     df = st.session_state['data'].copy()
+    if st.button(label='Aggiorna dati'):
+        st.session_state['data'] = read_google_sheet()
     df['nome_completo'] = df[['nome', 'cognome']].apply(lambda x : f"{x['nome']} {x['cognome']}", axis=1)
 
     iscritto = st.selectbox(label='Selezione iscritto', options=sorted(df['nome_completo'].unique()))
@@ -16,7 +19,7 @@ elif st.session_state["authentication_status"] is True:
     st.divider()
 
     st.markdown(f"## {iscritto_record['nome_completo']}")
-    print(iscritto_record)
+    
     st.markdown("#### Dati anagrafici")
     st.markdown(f"**Nato/a a** {iscritto_record['luogo_nascita']} **il** {iscritto_record['data_nascita']}")
     st.markdown(f"**Residente** a {iscritto_record['residenza']}")

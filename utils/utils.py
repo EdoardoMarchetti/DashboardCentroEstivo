@@ -2,6 +2,7 @@ import toml
 import streamlit_authenticator as stauth
 
 
+
 #--------------------------------------
 #--------- AUTHENTICATION -------------
 #--------------------------------------
