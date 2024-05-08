@@ -1,3 +1,5 @@
 .streamlit/
 
 .centro_estivo/
+
+__pycache__/
