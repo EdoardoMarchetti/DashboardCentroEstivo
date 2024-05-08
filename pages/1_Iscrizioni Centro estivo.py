@@ -3,7 +3,7 @@ from utils.utils import get_authenticator
 from utils.constants import column_mapping, weeks, new_columns
 
 
-if not st.session_state["authentication_status"]:
+if ("authentication_status" not in st.session_state.keys()) or not st.session_state["authentication_status"]:
     st.error('Please come back to main page and login') 
 elif st.session_state["authentication_status"] is True:
     st.title('Iscrizioni centro estivo')
