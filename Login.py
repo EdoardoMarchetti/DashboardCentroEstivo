@@ -1,35 +1,12 @@
-import json
+
 import pandas as pd
 import streamlit as st
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-from utils.constants import column_mapping, weeks, new_columns
+
 from streamlit_authenticator.utilities.exceptions import LoginError
 
-from utils.utils import get_authenticator 
+from utils.utils import get_authenticator, read_google_sheet
 
-@st.cache_data
-def read_google_sheet():
-    print('Leggi dati')
-    # Define the scope of the Google Sheet
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 
-    # Load credentials from the TOML file
-    credentials = ServiceAccountCredentials.from_json_keyfile_dict(st.secrets["google_secret"].to_dict(), scope)
-
-    # Authenticate using the credentials
-    gc = gspread.authorize(credentials)
-
-    # Open the Google Sheet by its title
-    sheet = gc.open('Iscrizioni centro estivo (Risposte)').sheet1
-
-    # Read all data from the sheet
-    data = sheet.get_all_records()
-
-    df = pd.DataFrame(data)
-    df.columns = new_columns
-
-    return df
 
 
 

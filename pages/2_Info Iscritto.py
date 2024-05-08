@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from utils.utils import get_authenticator
+from utils.utils import get_authenticator, read_google_sheet
 from utils.constants import column_mapping, weeks, new_columns
 
 
@@ -8,6 +8,7 @@ if ("authentication_status" not in st.session_state.keys()) or not st.session_st
     st.error('Please come back to main page and login') 
 elif st.session_state["authentication_status"] is True:
     st.title('Informazioni iscritto')
+    st.button('Aggiorna', on_click=read_google_sheet)
     df = st.session_state['data'].copy()
     df['nome_completo'] = df[['nome', 'cognome']].apply(lambda x : f"{x['nome']} {x['cognome']}", axis=1)
 

@@ -1,12 +1,13 @@
 import streamlit as st
 from utils.utils import get_authenticator
-from utils.constants import column_mapping, weeks, new_columns
+from utils.constants import column_mapping, weeks, new_columns, read_google_sheet
 
 
 if ("authentication_status" not in st.session_state.keys()) or not st.session_state["authentication_status"]:
     st.error('Please come back to main page and login') 
 elif st.session_state["authentication_status"] is True:
     st.title('Iscrizioni centro estivo')
+    st.button('Aggiorna', on_click=read_google_sheet)
     df = st.session_state['data'].copy()
 
     posto_col, settimana_col = st.columns(2)
