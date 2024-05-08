@@ -28,6 +28,7 @@ def read_google_sheet():
 
     df = pd.DataFrame(data)
     df.columns = new_columns
+    df = df.astype(dtype=str)
 
     return df
 
@@ -52,6 +53,8 @@ if st.session_state["authentication_status"]:
 
 if 'data' not in st.session_state.keys():
     st.session_state['data'] = pd.DataFrame(read_google_sheet())
+
+
 
 
 
