@@ -54,6 +54,8 @@ elif st.session_state["authentication_status"] is True:
     st.divider()
 
     st.markdown("#### Contatti e delegati")
+    st.markdown(f"**Email d'iscrizione** {iscritto_record['email']}")
+    st.markdown(f"")
     st.markdown(f"**Cellulare 1** {iscritto_record['cellulare_1']}")
     st.markdown(f"**Cellulare 2** {iscritto_record['cellulare_2']}")
     st.markdown(f"**Cellulare 3** {iscritto_record['cellulare_3']}")
