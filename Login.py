@@ -27,7 +27,9 @@ def read_google_sheet():
     data = sheet.get_all_records()
 
     df = pd.DataFrame(data)
+    
     df.columns = new_columns
+    print(df)
     df = df.astype(dtype=str)
 
     return df

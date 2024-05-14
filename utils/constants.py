@@ -25,7 +25,8 @@ column_mapping = {
     'Il sottoscritto genitore dichiara che il/la proprio/a figlio/a gode di buona salute psico-fisica. ': 'salute_figlio',
     'Io sottoscritto/a genitore sollevo gli organizzatori dell’evento da qualsiasi responsabilità civile e/o penale che possa derivare al partecipante a causa di infortuni e/o danni a persone e cose e/o smarrimento di effetti personali a proprio discapito o di terzi. ': 'responsabilita',
     'Assunzione farmaci': 'assunzione_farmaci',
-    'ALTRE ESIGENZE PARTICOLARI': 'altre_esigenze'
+    'ALTRE ESIGENZE PARTICOLARI': 'altre_esigenze',
+    'Indirizzo email': 'email'
 }
 
 new_columns = list(column_mapping.values())

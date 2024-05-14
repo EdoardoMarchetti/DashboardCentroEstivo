@@ -8,10 +8,13 @@ if ("authentication_status" not in st.session_state.keys()) or not st.session_st
     st.error('Please come back to main page and login') 
 elif st.session_state["authentication_status"] is True:
     st.title('Iscrizioni centro estivo')
-    df = st.session_state['data'].copy()
 
     if st.button(label='Aggiorna dati'):
         st.session_state['data'] = read_google_sheet()
+        
+    df = st.session_state['data'].copy()
+
+    
 
     posto_col, settimana_col = st.columns(2)
 
