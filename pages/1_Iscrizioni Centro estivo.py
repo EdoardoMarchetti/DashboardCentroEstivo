@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 from utils.utils import get_authenticator
 from utils.constants import column_mapping, weeks, new_columns
@@ -7,6 +8,8 @@ from Login import read_google_sheet
 if ("authentication_status" not in st.session_state.keys()) or not st.session_state["authentication_status"]:
     st.error('Please come back to main page and login') 
 elif st.session_state["authentication_status"] is True:
+    if 'data' not in st.session_state.keys():
+        st.session_state['data'] = pd.DataFrame(read_google_sheet())
     st.title('Iscrizioni centro estivo')
 
     if st.button(label='Aggiorna dati'):

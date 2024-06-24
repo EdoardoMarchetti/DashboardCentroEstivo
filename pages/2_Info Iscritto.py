@@ -8,6 +8,7 @@ from utils.constants import column_mapping, weeks, new_columns
 if ("authentication_status" not in st.session_state.keys()) or not st.session_state["authentication_status"]:
     st.error('Please come back to main page and login') 
 elif st.session_state["authentication_status"] is True:
+    st.session_state['data'] = pd.DataFrame(read_google_sheet())
     st.title('Informazioni iscritto')
     df = st.session_state['data'].copy()
     if st.button(label='Aggiorna dati'):
@@ -40,6 +41,8 @@ elif st.session_state["authentication_status"] is True:
     
     st.table(presenze_df)
 
+    st.markdown(f"**Piscina** {iscritto_record['piscina']}")
+
     st.markdown(f"**Metodo pagamento** {iscritto_record['modalita_pagamento']}")
 
     st.divider()
@@ -70,6 +73,8 @@ elif st.session_state["authentication_status"] is True:
     st.markdown("#### Consensi")
     st.markdown(f"**Liberatoria** {iscritto_record['responsabilita']}")
     st.markdown(f"**Trattamento dati personali** {iscritto_record['consenso_trattamento_dati']}")
+
+
     
 
 

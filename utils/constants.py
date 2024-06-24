@@ -26,7 +26,8 @@ column_mapping = {
     'Io sottoscritto/a genitore sollevo gli organizzatori dell’evento da qualsiasi responsabilità civile e/o penale che possa derivare al partecipante a causa di infortuni e/o danni a persone e cose e/o smarrimento di effetti personali a proprio discapito o di terzi. ': 'responsabilita',
     'Assunzione farmaci': 'assunzione_farmaci',
     'ALTRE ESIGENZE PARTICOLARI': 'altre_esigenze',
-    'Indirizzo email': 'email'
+    'Indirizzo email': 'email',
+    "Ingresso in Piscina, presso Follia Acquapark, Sant'Angelo di celle.\nOgni VENERDI\nCosto 5 EURO \nRivolto a tutti gli iscritti di entrambe le sedi\n(Facoltativo)\nQuel giorno il ritrovo sarà direttamente presso la piscina. ": 'piscina'
 }
 
 new_columns = list(column_mapping.values())
