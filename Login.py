@@ -27,8 +27,11 @@ def read_google_sheet():
     data = sheet.get_all_records()
 
     df = pd.DataFrame(data)
-    df.columns = new_columns
+    df = df.rename(columns=column_mapping)
+    df.to_csv('prova.csv')
+    print(df)
     df = df.astype(dtype=str)
+    
 
     return df
 

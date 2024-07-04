@@ -39,7 +39,8 @@ elif st.session_state["authentication_status"] is True:
     presenze_df = pd.DataFrame(data, index=weeks)
     
     st.table(presenze_df)
-
+    piscina = 'Aderisco' if iscritto_record['Piscina'].lower()=='aderisco' else 'Non Aderisco'
+    st.markdown(f"**Piscina** {piscina}")
     st.markdown(f"**Metodo pagamento** {iscritto_record['modalita_pagamento']}")
 
     st.divider()
@@ -54,6 +55,7 @@ elif st.session_state["authentication_status"] is True:
     st.divider()
 
     st.markdown("#### Contatti e delegati")
+    st.markdown(f"**Email** {iscritto_record['email']}")
     st.markdown(f"**Cellulare 1** {iscritto_record['cellulare_1']}")
     st.markdown(f"**Cellulare 2** {iscritto_record['cellulare_2']}")
     st.markdown(f"**Cellulare 3** {iscritto_record['cellulare_3']}")
