@@ -28,8 +28,6 @@ def read_google_sheet():
 
     df = pd.DataFrame(data)
     df = df.rename(columns=column_mapping)
-    df.to_csv('prova.csv')
-    print(df)
     df = df.astype(dtype=str)
     
 

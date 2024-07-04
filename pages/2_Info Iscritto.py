@@ -13,6 +13,11 @@ elif st.session_state["authentication_status"] is True:
     df = st.session_state['data'].copy()
     if st.button(label='Aggiorna dati'):
         st.session_state['data'] = read_google_sheet()
+    
+
+    print(
+            'Dataframe\n',
+            df.columns)
     df['nome_completo'] = df[['nome', 'cognome']].apply(lambda x : f"{x['nome']} {x['cognome']}", axis=1)
 
     iscritto = st.selectbox(label='Selezione iscritto', options=sorted(df['nome_completo'].unique()))
@@ -56,7 +61,7 @@ elif st.session_state["authentication_status"] is True:
     st.divider()
 
     st.markdown("#### Contatti e delegati")
-    st.markdown(f"**Email** {iscritto_record['email']}")
+    st.markdown(f"**Email** {iscritto_record['Email']}")
     st.markdown(f"**Cellulare 1** {iscritto_record['cellulare_1']}")
     st.markdown(f"**Cellulare 2** {iscritto_record['cellulare_2']}")
     st.markdown(f"**Cellulare 3** {iscritto_record['cellulare_3']}")
